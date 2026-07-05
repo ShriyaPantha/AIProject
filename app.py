@@ -4,18 +4,17 @@ from langchain_core.messages import HumanMessage
 
 from tools import budget_calculator
 
-# Load environment variables from .env
+
 load_dotenv()
 
-# ChatGroq automatically uses GROQ_API_KEY from .env
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",
-    temperature=0.7,
+    
 )
 
-print("=" * 50)
+
 print("AI Travel Planner")
-print("=" * 50)
+
 
 destination = input("Enter Destination: ")
 days = input("Enter Number of Days: ")
