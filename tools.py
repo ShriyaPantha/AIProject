@@ -2,18 +2,18 @@ from langchain.tools import tool
 
 @tool
 def budget_calculator(level: str) -> str:
-    """Returns estimated daily travel budget."""
+    """Returns estimated daily travel budget in Nepalese Rupees (NPR)."""
 
-    level = level.lower()
+    level = level.lower().strip()
 
     if level == "budget":
-        return "$50 - $100 per day"
+        return "NPR 3,000 - NPR 7,000 per day"
 
     elif level == "mid":
-        return "$100 - $250 per day"
+        return "NPR 7,000 - NPR 15,000 per day"
 
     elif level == "luxury":
-        return "$250+ per day"
+        return "NPR 15,000+ per day"
 
     else:
-        return "Please choose Budget, Mid, or Luxury."
+        return "Please choose one of: Budget, Mid, or Luxury."
