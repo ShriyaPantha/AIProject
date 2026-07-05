@@ -1,19 +1,21 @@
-from langchain.tools import tool
+budget_prompt = f"""
+You are a travel budget expert.
 
-@tool
-def budget_calculator(level: str) -> str:
-    """Returns estimated daily travel budget in Nepalese Rupees (NPR)."""
+Estimate the average daily travel cost for the following trip.
 
-    level = level.lower().strip()
+Destination: {destination}
+Budget Level: {budget}
 
-    if level == "budget":
-        return "NPR 3,000 - NPR 7,000 per day"
+Rules:
+- Use the local currency of the destination.
+- Consider accommodation, food, local transportation, and sightseeing.
+- Return only the estimated daily budget.
+- Example:
+  Nepal (Mid): NPR 7,000 - NPR 15,000 per day
+  Japan (Luxury): ¥30,000 - ¥60,000 per day
+  France (Budget): €60 - €100 per day
+"""
 
-    elif level == "mid":
-        return "NPR 7,000 - NPR 15,000 per day"
-
-    elif level == "luxury":
-        return "NPR 15,000+ per day"
-
-    else:
-        return "Please choose one of: Budget, Mid, or Luxury."
+daily_budget = llm.invoke(
+    [HumanMessage(content=budget_prompt)]
+).content
