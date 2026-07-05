@@ -1,0 +1,9 @@
+pandas
+langchain
+numpy
+langchain_core
+# langcahin_community
+langchain_groq
+langchain_google_genai
+# lanchain_huggingface
+sentence-transformers
